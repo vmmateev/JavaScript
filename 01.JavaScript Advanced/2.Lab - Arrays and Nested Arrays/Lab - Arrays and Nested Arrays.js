@@ -12,7 +12,19 @@ function evenPos(input) {
 // evenPos(['5', '10']);
 
 //2. Last K Numbers Sequence
+function numSeq(seqLength, countElements) {
+    let result = [1];
 
+    for (let i = 1; i < seqLength; i++) {
+        let startIndex = Math.max(0, i - countElements);
+        let currentElement = result.slice(startIndex, startIndex + countElements).reduce((a, b) => a + b, 0);
+        result.push(currentElement);
+    }
+
+    return result;
+}
+// console.log(numSeq(6,3));
+// console.log(numSeq(8,2));
 
 //3.Sum First Last
 function sumFirstLast(strings) {
@@ -43,8 +55,29 @@ function negPosSort(input) {
 // negPosSort([3, -2, 0, -1]);
 
 //5.Smallest Two Numbers
+function smallestTwo(arrayInput) {
+    let result = arrayInput.sort((a, b) => a - b);
+    console.log(result[0], result[1]);
+}
+// smallestTwo([30, 15, 50, 5]);
+// smallestTwo([3, 0, 10, 4, 7, 3]);
 
 //6.Bigger Half
+function biggerHalf(arrayInput) {
+    // let length = Math.ceil(arrayInput.length / 2);
+    // let result = arrayInput.sort((a, b) => a - b);
+    // let printArr = [];
+    // for (let i = result.length-length; i < result.length; i++) {
+    //     printArr.push(result[i]);
+    // }
+    // return printArr;
+
+    return arrayInput.sort((a, b) => a - b).slice(arrayInput.length / 2);
+
+}
+// console.log(biggerHalf([4, 7, 2, 5]));
+// console.log(biggerHalf([3, 19, 14, 7, 2, 19, 6]));
+
 
 //7.Piece of Pie
 function pie(pies, startPie, endPie) {
@@ -104,6 +137,22 @@ function oddPos(input) {
 // oddPos([3, 0, 10, 4, 7, 3]);
 
 //9.Biggest Element
+function biggestElMatrix(matrix) {
+    let biggest = -9999999999;
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            if (matrix[i][j] >= biggest) {
+                biggest = matrix[i][j];
+            }
+        }
+    }
+    return biggest;
+}
+// console.log(biggestElMatrix([[20, 50, 10],
+// [8, 33, 145]]));
+// console.log(biggestElMatrix([[3, 5, 7, 12],
+// [-1, 4, 33, 2],
+// [8, 3, 0, 4]]));
 
 //10.Diagonal Sums
 function diagonalSum(matrix) {
@@ -122,3 +171,45 @@ function diagonalSum(matrix) {
 // diagonalSum([[3, 5, 17],
 // [-1, 7, 14],
 // [1, -8, 89]]);
+
+//11.Equal Neighbors
+function equalNeighbors(matrix) {
+    let counter = 0;
+    for (let row = 0; row < matrix.length; row++) {
+        for (let col = 0; col < matrix[row].length; col++) {
+            if (isInsideMatrix(row, col + 1, matrix) && matrix[row][col] === matrix[row][col + 1]) {
+                counter++;
+            }
+            if (isInsideMatrix(row + 1, col, matrix) && matrix[row][col] === matrix[row + 1][col]) {
+                counter++;
+            }
+        }
+    }
+
+    function isInsideMatrix(row, col, matrix) {
+        let isInside = true;
+        if (row < 0 || row >= matrix.length) {
+            isInside = false;
+        }
+        if (isInside && col < 0 || col >= matrix[row]) {
+            isInside = false;
+        }
+        return isInside;
+    }
+    return counter;
+}
+// console.log(equalNeighbors([
+//     ['2', '3', '4', '7', '0'],
+//     ['4', '0', '5', '3', '4'],
+//     ['2', '3', '5', '4', '2'],
+//     ['9', '8', '7', '5', '4']]));
+
+// console.log(equalNeighbors([
+//     ['', 'done', 'yo', 'ho'],
+//     ['well', 'done', 'yo', '6'],
+//     ['not', 'done', 'yet', '5']]));
+
+// console.log(equalNeighbors([
+//     [2, 2, 5, 7, 4],
+//     [4, 0, 5, 3, 4],
+//     [2, 5, 5, 4, 2]]));
