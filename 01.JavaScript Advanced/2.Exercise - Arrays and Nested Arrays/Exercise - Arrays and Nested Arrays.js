@@ -51,15 +51,28 @@ function printElement(arrayInput, number) {
 //3. Add and Remove Elements
 function addRemoveElement(strArray) {
     let result = [];
-    let counter = 0;
-    for (let i = 0; i < strArray.length; i++) {
-        counter++;
-        if (strArray[i] === 'add') {
-            result.push(counter);
+    // let counter = 0;
+    // for (let i = 0; i < strArray.length; i++) {
+    //     counter++;
+    //     if (strArray[i] === 'add') {
+    //         result.push(counter);
+    //     } else {
+    //         result.pop();
+    //     }
+    // }
+    // if (result.length === 0) {
+    //     console.log('Empty');
+    // }
+
+    let number = 1;
+    strArray.forEach(element => {
+        if (element === 'add') {
+            result.push(number);
         } else {
             result.pop();
         }
-    }
+        number++;
+    });
     if (result.length === 0) {
         console.log('Empty');
     }
@@ -110,32 +123,61 @@ function extract(numArray) {
             result.push(acc);
             acc = currentElement;
         }
-        if (index == numArray.length -1) {
+        if (index == numArray.length - 1) {
             result.push(acc);
         }
         return acc;
     });
-    return(result);
+    return (result);
 }
-console.log(extract([1,
-    3,
-    8,
-    4,
-    10,
-    12,
-    3,
-    2,
-    24]
-));
-console.log(extract([1,
-    2,
-    3,
-    4]
-));
-console.log(extract([20,
-    3,
-    2,
-    15,
-    6,
-    1]
-));
+// console.log(extract([1,
+//     3,
+//     8,
+//     4,
+//     10,
+//     12,
+//     3,
+//     2,
+//     24]
+// ));
+// console.log(extract([1,
+//     2,
+//     3,
+//     4]
+// ));
+// console.log(extract([20,
+//     3,
+//     2,
+//     15,
+//     6,
+//     1]
+// ));
+
+//6.List Of Names
+
+function listName(strArr) {
+    let result = strArr.sort(function (a, b) {
+        return a.localeCompare(b)
+    });
+
+    counter = 1;
+    for (let i = 0; i < strArr.length; i++) {
+        console.log(`${counter}.${result[i]}`);
+        counter++;
+    }
+}
+// listName(["John", "Bob", "Christina", "Ema"]);
+
+//7.Sorting Numbers
+function sortNumb(intArr) {
+    intArr.sort((a, b) => a - b);
+    let result = [];
+    while (intArr.length){
+        result.push(intArr.shift());
+        result.push(intArr.pop());
+    }
+    return result.filter(x=> x != undefined);
+}
+
+console.log(sortNumb([1, 65, 3, 52, 48, 63, 31, -3, 18, 56]));
+console.log(sortNumb([1, 65, 3, 52, 48, 63, 31, -3, 18]));
