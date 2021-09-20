@@ -179,5 +179,17 @@ function sortNumb(intArr) {
     return result.filter(x=> x != undefined);
 }
 
-console.log(sortNumb([1, 65, 3, 52, 48, 63, 31, -3, 18, 56]));
-console.log(sortNumb([1, 65, 3, 52, 48, 63, 31, -3, 18]));
+// console.log(sortNumb([1, 65, 3, 52, 48, 63, 31, -3, 18, 56]));
+// console.log(sortNumb([1, 65, 3, 52, 48, 63, 31, -3, 18]));
+
+//08. Sort an Array by 2 Criteria
+
+//09. Magic Matrices
+
+//10. Tic-Tac-Toe (not included in final score)
+
+//11. Diagonal Attack (not included in final score)
+
+//12. Orbit (not included in final score)
+
+//13. Spiral Matrix (not included in final score)
