@@ -183,6 +183,33 @@ function sortNumb(intArr) {
 // console.log(sortNumb([1, 65, 3, 52, 48, 63, 31, -3, 18]));
 
 //08. Sort an Array by 2 Criteria
+function sortByTwo(strArr) {
+    const result = strArr.sort((a, b) => {
+        if (a.length === b.length) {
+            return a.localeCompare(b);
+        }
+        return a.length - b.length
+    });
+
+
+    console.log(result.join('\n'));
+}
+
+// sortByTwo(['alpha', 
+// 'beta', 
+// 'gamma']
+// );
+// sortByTwo(['Isacc', 
+// 'Theodor', 
+// 'Jack', 
+// 'Harrison', 
+// 'George']
+// );
+// sortByTwo(['test', 
+// 'Deny', 
+// 'omen', 
+// 'Default']
+// );
 
 //09. Magic Matrices
 
