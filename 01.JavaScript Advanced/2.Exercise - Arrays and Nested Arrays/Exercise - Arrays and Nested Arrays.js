@@ -25,6 +25,8 @@ function printElement(arrayInput, number) {
     for (let i = 0; i < arrayInput.length; i += number) {
         result.push(arrayInput[i]);
     }
+    // let filteredArray = arrayInput.filter((el, index) => i % number === 0);
+    // result = filteredArray;
     return result;
 }
 // console.log(printElement(['5', 
@@ -281,10 +283,10 @@ function TicTacToe(arr) {
     const gameBoard = [["false", "false", "false"],
     ["false", "false", "false"],
     ["false", "false", "false"]]
-    
-    
+
+
     let player = "X"
- 
+
     function searchForWinningMove(gameBoard, row, idx) {
         return (
             gameBoard[row].every(x => x === player) ||
@@ -298,30 +300,30 @@ function TicTacToe(arr) {
             [gameBoard[0][2], gameBoard[1][1], gameBoard[2][0]].every(x => x === player)
         )
     }
- 
+
     const printBoard = board => console.log(board.map(x => x.join("\t")).join("\n"))
- 
+
     for (let i = 0; i < arr.length; i++) {
         const [row, idx] = arr[i].split(" ").map(Number)
- 
+
         if (gameBoard[row][idx] !== "false") {
             console.log("This place is already taken. Please choose another!")
             continue
         }
         gameBoard[row][idx] = player
- 
+
         if (searchForWinningMove(gameBoard, row, idx)) {
             console.log(`Player ${player} wins!`)
             printBoard(gameBoard)
             break
         }
- 
+
         if (gameBoard.every(x => x.every(y => y !== "false"))) {
             console.log("The game ended! Nobody wins :(")
             printBoard(gameBoard)
             break
         }
- 
+
         player = player === "X" ? "O" : "X"
     }
 }
@@ -422,42 +424,42 @@ function spiralMatrix(rows, cols) {
     // Create empty NxN matrix
     let matrix = [];
     for (let i = 0; i < rows; i++) {
-      matrix.push(new Array(cols))
+        matrix.push(new Array(cols))
     }
-  
+
     let startCol = 0;
     let startRow = 0;
     let endCol = Number(cols) - 1;
     let endRow = Number(rows) - 1;
     let counter = 1;
-  
+
     while (startCol <= endCol && startRow <= endRow) {
-      for (let i = startCol; i <= endCol; i++) {
-        matrix[startRow][i] = counter;
-        counter++;
-      }
-  
-      startRow++;
-      for (let j = startRow; j <= endRow; j++) {
-        matrix[j][endCol] = counter;
-        counter++;
-      }
-  
-      endCol--;
-      for (let i = endCol; i >= startCol; i--) {
-        matrix[endRow][i] = counter;
-        counter++;
-      }
-  
-      endRow--;
-      for (let i = endRow; i >= startRow; i--) {
-        matrix[i][startCol] = counter;
-        counter++;
-      }
-  
-      startCol++;
+        for (let i = startCol; i <= endCol; i++) {
+            matrix[startRow][i] = counter;
+            counter++;
+        }
+
+        startRow++;
+        for (let j = startRow; j <= endRow; j++) {
+            matrix[j][endCol] = counter;
+            counter++;
+        }
+
+        endCol--;
+        for (let i = endCol; i >= startCol; i--) {
+            matrix[endRow][i] = counter;
+            counter++;
+        }
+
+        endRow--;
+        for (let i = endRow; i >= startRow; i--) {
+            matrix[i][startCol] = counter;
+            counter++;
+        }
+
+        startCol++;
     }
-  
+
     matrix.forEach(line => console.log(line.join(' ')))
 }
 
