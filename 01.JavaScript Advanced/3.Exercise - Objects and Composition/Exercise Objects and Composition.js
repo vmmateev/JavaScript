@@ -193,7 +193,7 @@ function townsToJson(strArr) {
     for (let i = 1; i < strArr.length; i++) {
         const obj = {};
         let splittedEntry = strArr[i].split('|');
-        
+
         obj[town] = splittedEntry[1].trim();
         obj[latitude] = Number(Number(splittedEntry[2].trim()).toFixed(2));
         obj[longitude] = Number(Number(splittedEntry[3].trim()).toFixed(2));
@@ -204,7 +204,74 @@ function townsToJson(strArr) {
     return JSON.stringify(result);
 }
 
-console.log(townsToJson(['| Town | Latitude | Longitude |',
-    '| Sofia | 42.696552 | 23.32601 |',
-    '| Beijing | 39.913818 | 116.363625 |']
-));
+// console.log(townsToJson(['| Town | Latitude | Longitude |',
+//     '| Sofia | 42.696552 | 23.32601 |',
+//     '| Beijing | 39.913818 | 116.363625 |']
+// ));
+// console.log(townsToJson(['| Town | Latitude | Longitude |',
+//     '| Veliko Turnovo | 43.0757 | 25.6172 |',
+//     '| Monatevideo | 34.50 | 56.11 |']
+// ));
+
+//8.Rectangle
+function rectangle(width, height, color) {
+    return {
+        width: width,
+        height: height,
+        color: color[0].toUpperCase() + color.slice(1, color.length),
+        calcArea: function () {
+            return width * height;
+        }
+    }
+}
+
+// let rect = rectangle(4, 5, 'red');
+// console.log(rect.width);
+// console.log(rect.height);
+// console.log(rect.color);
+// console.log(rect.calcArea());
+
+//9.Sorted List (not included in final score)
+
+
+//10. Heroes
+function solve() {
+    let fighter = (name) => {
+        return {
+            name,
+            health: 100,
+            stamina: 100,
+            fight() {
+                this.stamina -= 1;
+                console.log(`${name} slashes at the foe!`);
+            }
+        }
+    }
+    let mage = (name) => {
+        return {
+            name,
+            health: 100,
+            mana: 100,
+            cast(spellName) {
+                this.mana -= 1;
+                console.log(`${name} cast ${spellName}`);
+            }
+        }
+    }
+    return { fighter: fighter, mage: mage }
+}
+
+let create = solve();
+const scorcher = create.mage("Scorcher");
+scorcher.cast("fireball")
+scorcher.cast("thunder")
+scorcher.cast("light")
+
+const scorcher2 = create.fighter("Scorcher 2");
+scorcher2.fight()
+
+console.log(scorcher2.stamina);
+console.log(scorcher.mana);
+
+//11.Jan's Notation * (not included in final score)
+
