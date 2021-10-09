@@ -1,6 +1,39 @@
 //1.Rectangle
+class Rectangle {
+    constructor(width, height, color) {
+        this.width = width;
+        this.height = height;
+        this.color = color;
+    }
+
+    calcArea() {
+        return this.width * this.height;
+    }
+}
+
+
+// let rect = new Rectangle(4, 5, 'Red');
+// console.log(rect.width);
+// console.log(rect.height);
+// console.log(rect.color);
+// console.log(rect.calcArea());
 
 //2.Data Class
+class Request {
+    constructor(method, uri, version, message) {
+        this.method = method;
+        this.uri = uri;
+        this.version = version;
+        this.message = message;
+        this.response = undefined;
+        this.fulfilled = false;
+    }
+}
+
+// let myData = new Request('GET', 'http://google.com', 'HTTP/1.1', '')
+// console.log(myData);
+// myData.fulfiled = true;
+// console.log(myData);
 
 //3.Tickets
 function solve(tickets, criteria) {
@@ -91,6 +124,46 @@ class List {
 
 
 //5.Length Limit
+class Stringer {
+    constructor(innerString, innerLength) {
+        this.innerString = innerString;
+        this.innerLength = Number(innerLength);
+    }
+
+    increase(length) {
+        return this.innerLength += length;
+    }
+
+    decrease(length) {
+        if (this.innerLength - length < 0) {
+            return this.innerLength = 0;
+        }
+        return this.innerLength -= length;
+    }
+
+    toString() {
+        if (this.innerLength == 0) {
+            return "...";
+        } else if (this.innerString.length <= this.innerlength) {
+            return this.innerString;
+        } else {
+            let result = this.innerString.slice(0, this.innerLength);
+            return result += "...";
+        }
+    }
+}
+
+// let test = new Stringer("Test", 5);
+// console.log(test.toString()); // Test
+
+// test.decrease(3);
+// console.log(test.toString()); // Te...
+
+// test.decrease(5);
+// console.log(test.toString()); // ...
+
+// test.increase(4);
+// console.log(test.toString()); // Test
 
 //6.Company
 class Company {
@@ -221,8 +294,10 @@ function solve(input) {
 // );
 
 //10.Contacts Builder (not included in final score)
+//in file
 
 //11.View Model (not included in final score)
+//in file
 
 //12.Payment Package
 
