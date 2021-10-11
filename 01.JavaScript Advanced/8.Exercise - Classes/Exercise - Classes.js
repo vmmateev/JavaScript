@@ -243,8 +243,86 @@ class Company {
 // console.log(company.bestDepartment());
 
 //7.HEX
+class Hex {
+    constructor(value) {
+        this.value = value;
+    }
+
+    valueOf() {
+        return this.value;
+    }
+
+    toString() {
+        return "0x" + this.value.toString(16).toUpperCase();
+    }
+
+    plus(number) {
+        return new Hex(this.value + number);
+    }
+
+    minus(number) {
+        return new Hex(this.value - number);
+    }
+
+    parse(string) {
+        return string.slice(2).toString(10);
+    }
+}
+
+// let FF = new Hex(255);
+// console.log(FF.toString());
+// FF.valueOf() + 1 == 256;
+// let a = new Hex(10);
+// let b = new Hex(5);
+// console.log(a.plus(b).toString());
+// console.log(a.plus(b).toString() === '0xF');
+// console.log(FF.parse('AAA'));
 
 //8.Juice Flavors
+function solve8(juicesArr) {
+    let juicesAmount = new Map();
+    let juicesBottles = new Map();
+    
+    for (let index = 0; index < juicesArr.length; index++) {
+        let [juiceName, amount] = juicesArr[index].split(' => ');
+        amount = Number(amount);
+
+        if (!juicesAmount.has(juiceName)) {
+            juicesAmount.set(juiceName, 0);
+        }
+        let totalAmount = juicesAmount.get(juiceName) + amount;
+        if (totalAmount >= 1000) {
+            if (!juicesBottles.has(juiceName)) {
+                juicesBottles.set(juiceName, 0);
+            }
+            let newBottles = Math.trunc(totalAmount / 1000);
+            let totalBottles = juicesBottles.get(juiceName) + newBottles;
+            juicesBottles.set(juiceName, totalBottles);
+        }
+
+        juicesAmount.set(juiceName, totalAmount % 1000);
+    }
+    for (const [key, val] of juicesBottles) {
+        console.log(`${key} => ${val}`)
+    }
+}
+
+// solve8(['Orange => 2000',
+//     'Peach => 1432',
+//     'Banana => 450',
+//     'Peach => 600',
+//     'Strawberry => 549']
+// );
+// console.log('==========================');
+// solve8(['Kiwi => 234',
+//     'Pear => 2345',
+//     'Watermelon => 3456',
+//     'Kiwi => 4567',
+//     'Pear => 5678',
+//     'Watermelon => 6789']
+// );
+
+
 
 //9.Auto-Engineering Company
 function solve(input) {
@@ -299,7 +377,8 @@ function solve(input) {
 //11.View Model (not included in final score)
 //in file
 
-//12.Payment Package
+//12.Payment Package - Unit Test Package
+//in file
 
 //13.String Builder * (not included in final score)
 
