@@ -1,3 +1,4 @@
 function toggle() {
-    console.log('TODO:...');
+    const button = document.getElementsByClassName('button');
+        console.log(button);
 }
