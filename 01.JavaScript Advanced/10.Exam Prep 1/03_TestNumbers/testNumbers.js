@@ -2,7 +2,7 @@ const testNumbers = {
     sumNumbers: function (num1, num2) {
         let sum = 0;
 
-        if (typeof(num1) !== 'number' || typeof(num2) !== 'number') {
+        if (typeof (num1) !== 'number' || typeof (num2) !== 'number') {
             return undefined;
         } else {
             sum = (num1 + num2).toFixed(2);
@@ -36,4 +36,4 @@ const testNumbers = {
 };
 
 
-
+module.exports = { testNumbers };
