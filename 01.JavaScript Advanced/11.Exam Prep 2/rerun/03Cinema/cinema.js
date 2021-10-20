@@ -37,3 +37,4 @@ const cinema = {
 };
 
 module.exports = { cinema };
+
