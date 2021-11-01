@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register form demo</title>
+</head>
+<style>
+    label {
+        display: block
+    }
+</style>
+
+<body>
+    <h2>Register</h2>
+    <form method="POST" action="http://localhost:3030/jsonstore/phonebook">
+        <label>Email: <input type="text" name="email" /> </label>
+        <label>Password: <input type="text" name="password" /> </label>
+        <label>Repeat Password: <input type="text" name="repass" /> </label>
+
+        <input type="submit" value="Register" />
+    </form>
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', onRegister);
+
+        async function onRegister(event) {
+            event.preventDefault();
+            const url = 'http://localhost:3030/users/register';
+            const formData = new FormData(form);
+
+            const email = formData.get('email').trim();
+            const email = formData.get('password').trim();
+            const email = formData.get('repass').trim();
+
+            const res = fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/'
+                },
+                body: Json.stringify({ email, pasword })
+            });
+
+            const result = await res.json();
+            const token = result.accessToken;
+            sessionStorage.setItem('token', token);
+        }
+    </script>
+</body>
+
+</html>
