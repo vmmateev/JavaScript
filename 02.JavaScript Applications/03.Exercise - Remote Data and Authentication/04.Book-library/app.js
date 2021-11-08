@@ -1,19 +1,11 @@
 //load all books
-
 //create book
-
 //update book
-
 //delete book
-
 //handle create form
-
 //handle edit form
-
 //load book for editing
-
 //handle delete button
-
 //inittializaiton
 
 const tbody = document.querySelector('tbody');
