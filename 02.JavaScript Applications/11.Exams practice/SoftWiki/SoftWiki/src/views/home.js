@@ -12,7 +12,7 @@ const homeTemplate = (cSArticle, javaArticle, pythonArticle, jsArticle) => html`
         <article>
             <h3>${jsArticle.title}</h3>
             <p>${jsArticle.content}</p>
-            <a href="/data/wiki/${jsArticle._id}" class="btn details-btn">Details</a>
+            <a href="/details/${jsArticle._id}" class="btn details-btn">Details</a>
         </article>
         `}
     </section>
@@ -24,7 +24,7 @@ const homeTemplate = (cSArticle, javaArticle, pythonArticle, jsArticle) => html`
         <article>
             <h3>${cSArticle.title}</h3>
             <p>${cSArticle.content}</p>
-            <a href="/data/wiki/${cSArticle._id}" class="btn details-btn">Details</a>
+            <a href="/details/${cSArticle._id}" class="btn details-btn">Details</a>
         </article>
         `}
     </section>
@@ -36,7 +36,7 @@ const homeTemplate = (cSArticle, javaArticle, pythonArticle, jsArticle) => html`
         <article>
             <h3>${javaArticle.title}</h3>
             <p>${javaArticle.content}</p>
-            <a href="/data/wiki/${javaArticle._id}" class="btn details-btn">Details</a>
+            <a href="/details/${javaArticle._id}" class="btn details-btn">Details</a>
         </article>
         `}
     </section>
@@ -48,7 +48,7 @@ const homeTemplate = (cSArticle, javaArticle, pythonArticle, jsArticle) => html`
         <article>
             <h3>${pythonArticle.title}</h3>
             <p>${pythonArticle.content}</p>
-            <a href="/data/wiki/${pythonArticle._id}" class="btn details-btn">Details</a>
+            <a href="/details/${pythonArticle._id}" class="btn details-btn">Details</a>
         </article>
         `}
     </section>

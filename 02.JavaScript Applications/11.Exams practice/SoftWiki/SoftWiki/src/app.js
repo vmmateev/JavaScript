@@ -1,14 +1,20 @@
+import { logout } from './api/data.js';
 import { html, render, page } from './lib.js';
 import { getUserData } from './util.js';
+import { createPage } from './views/create.js';
+import { detailsPage } from './views/details.js';
 import { homePage } from './views/home.js';
 
-
+import * as api from './api/api.js'
 page(decorateContext);
 page('/', homePage);
+page('/create', createPage);
+page('/details/:id', detailsPage);
 
 updateUserNav();
 page.start();
 
+window.api = api;
 
 const root = document.getElementById('main-content');
 document.getElementById('logoutLink').addEventListener('click', onLogout);
