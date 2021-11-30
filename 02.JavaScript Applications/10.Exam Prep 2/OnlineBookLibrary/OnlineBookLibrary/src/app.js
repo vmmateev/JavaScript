@@ -29,8 +29,7 @@ document.getElementById('logoutBtn').addEventListener('click', onLogout);
 function decorateContext(ctx, next) {
     ctx.render = (content) => render(content, root);
     ctx.updateUserNav = updateUserNav;
-    console.log(ctx);
-    console.log(ctx.params.id);
+    
     next();
 }
 
