@@ -14,7 +14,7 @@ const detailsTemplate = (article, isOwner, onDelete) => html`
             <a @click=${onDelete} href="javascript:void(0)" class="btn delete">Delete</a>
             <a href="/edit/${article._id}" class="btn edit">Edit</a>
             `
-        : html`
+            : html`
             <a href="/" class="btn edit">Back</a>
             `}
         </div>

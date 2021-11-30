@@ -1,22 +1,33 @@
 import { logout } from './api/data.js';
 import { html, render, page } from './lib.js';
 import { getUserData } from './util.js';
+import { catalogPage } from './views/catalog.js';
 import { createPage } from './views/create.js';
 import { detailsPage } from './views/details.js';
+import { editPage } from './views/edit.js';
+import { searchPage } from './views/search.js';
 import { homePage } from './views/home.js';
+import { loginPage } from './views/login.js';
+import { registerPage } from './views/register.js';
 
-import * as api from './api/api.js'
+const root = document.getElementById('main-content');
+
 page(decorateContext);
 page('/', homePage);
+page('/index', homePage);
+page('/login', loginPage);
+page('/register', registerPage);
 page('/create', createPage);
+page('/edit/:id', editPage);
+page('/catalog', catalogPage);
 page('/details/:id', detailsPage);
+page('/search', searchPage);
 
 updateUserNav();
 page.start();
 
-window.api = api;
 
-const root = document.getElementById('main-content');
+
 document.getElementById('logoutLink').addEventListener('click', onLogout);
 
 

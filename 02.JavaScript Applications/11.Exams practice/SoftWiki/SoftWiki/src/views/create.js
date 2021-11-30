@@ -46,14 +46,14 @@ export function createPage(ctx) {
             return alert('All Fields are required')
         }
 
-        if (category != 'JavaScript' || category != 'Java' || category != 'Python' || category != 'C#') {
+        if (category != 'JavaScript' && category != 'Java' && category != 'Python' && category != 'C#') {
             return alert('Allowed categories are "C#, Java, JavaScript or Python"');
         }
 
         await createArticle({
             title,
             category,
-            content,
+            content
         });
 
         ctx.page.redirect('/');
