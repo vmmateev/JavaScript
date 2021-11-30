@@ -39,7 +39,7 @@ export async function deleteArticle(id) {
 //SEARCH 
 ///data/wiki?where=title%20LIKE%20%22{query}%22
 export async function searchArticle(query) {
-    //return api.get('/data/wiki?where=' + encodeURIComponent(`title LIKE "${query}"`));
-    return api.get(host + `/data/wiki?where=title%20LIKE%20%22${query}%22`);
+    return api.get('/data/wiki?where=' + encodeURIComponent(`title LIKE "${query}"`));
+    //return api.get(host + `/data/wiki?where=title%20LIKE%20%22${query}%22`);
 
 }

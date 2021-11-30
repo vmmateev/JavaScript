@@ -31,7 +31,7 @@ const articlePreview = (article) => html`
 
 export async function searchPage(ctx) {
     const params = ctx.querystring.split('=')[1];
-    console.log(decodeURIComponent(params))
+        
     let articles = [];
 
     if (params) {
@@ -43,10 +43,10 @@ export async function searchPage(ctx) {
     function onSearch(event) {
         event.preventDefault();
         const formData = new FormData(event.target);
-        const search = formData.get('search');
+        const search = formData.get('search').trim();
 
         if (search) {
-            ctx.page.redirect('/search?query' + encodeURIComponent(search))
+            ctx.page.redirect('/search?query=' + encodeURIComponent(search))
         }
     }
 
