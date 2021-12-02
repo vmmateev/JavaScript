@@ -1,5 +1,6 @@
 import { getAllCars } from '../api/data.js';
 import { html } from '../lib.js'
+import { getUserData } from '../util.js';
 
 const catalogTemplate = (cars) => html`
 <section id="car-listings">
@@ -30,8 +31,7 @@ const listingTemplate = (car) => html`
         <div class="data-buttons">
             <a href="/details/${car._id}" class="button-carDetails">Details</a>
         </div>
-    </div>
-`;
+    </div>`;
 
 export async function catalogPage(ctx) {
     const cars = await getAllCars();

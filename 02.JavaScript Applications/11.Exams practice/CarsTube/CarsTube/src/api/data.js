@@ -49,6 +49,7 @@ export async function deleteCar(id) {
 
 //SEARCH 
 
-export async function searchCars(query) {
+export async function search(query) {
+    //return api.get(`/data/cars?where=year%3D${query}`);
     return api.get('/data/cars?where=' + encodeURIComponent(`year =${query}`));
 }

@@ -7,6 +7,9 @@ import { homePage } from './views/home.js';
 import { catalogPage } from './views/catalog.js';
 import { createPage } from './views/create.js';
 import { detailsPage } from './views/details.js';
+import { editPage } from './views/edit.js';
+import { myListingsPage } from './views/my-listings.js';
+import { searchPage } from './views/search.js';
 
 const root = document.getElementById('site-content');
 document.getElementById('logoutBtn').addEventListener('click', onLogout);
@@ -18,6 +21,9 @@ page('/create', createPage);
 page('/login', loginPage);
 page('/register', registerPage);
 page('/details/:id', detailsPage);
+page('/edit/:id', editPage);
+page('/my-listings', myListingsPage);
+page('/search', searchPage);
 
 
 page.start();

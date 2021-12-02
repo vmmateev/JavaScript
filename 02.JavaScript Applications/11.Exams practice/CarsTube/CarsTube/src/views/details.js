@@ -10,7 +10,7 @@ const detailsTemplate = (car, isOwner, onDelete) => html`
         <hr>
         <ul class="listing-props">
             <li><span>Brand:</span>${car.brand}</li>
-            <li><span>Model:</span>${car.mode}</li>
+            <li><span>Model:</span>${car.model}</li>
             <li><span>Year:</span>${car.year}</li>
             <li><span>Price:</span>${car.price}$</li>
         </ul>
@@ -24,12 +24,13 @@ const detailsTemplate = (car, isOwner, onDelete) => html`
         </div>` : ''}
     </div>
 </section>`;
+
 //non author sees edit delete button test fail
 export async function detailsPage(ctx) {
     const car = await getCarById(ctx.params.id);
 
     const userData = getUserData();
-    console.log(userData.id)
+    
     const isOwner = userData && userData.id == car._ownerId;
 
     ctx.render(detailsTemplate(car, isOwner, onDelete));

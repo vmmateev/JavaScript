@@ -313,7 +313,7 @@ describe('E2E tests', function () {
             expect(postData.price).to.equal(data.price);
         });
 
-        it.only('non-author does NOT see delete and edit buttons [ 2.5 Points ]', async () => {
+        it('non-author does NOT see delete and edit buttons [ 2.5 Points ]', async () => {
             await page.click('text=All Listings');
             await page.waitForTimeout(interval);
             await page.waitForSelector('#car-listings');
