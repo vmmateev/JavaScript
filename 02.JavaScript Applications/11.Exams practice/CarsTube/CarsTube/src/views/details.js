@@ -30,7 +30,6 @@ export async function detailsPage(ctx) {
     const car = await getCarById(ctx.params.id);
 
     const userData = getUserData();
-    
     const isOwner = userData && userData.id == car._ownerId;
 
     ctx.render(detailsTemplate(car, isOwner, onDelete));

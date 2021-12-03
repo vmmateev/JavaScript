@@ -9,16 +9,13 @@ const catalogTemplate = (cars) => html`
         <!-- Display all records -->
         ${cars.length == 0 ? html`
         <p class="no-cars">No cars in database.</p>`
-        :
-        html`
-        <div class="listing">
-            ${cars.map(listingTemplate)}
-        </div>
-        `}
+        :        
+        cars.map(listingTemplate)}
     </div>
 </section>`;
 
 const listingTemplate = (car) => html`
+<div class="listing">
     <div class="preview">
         <img src=${car.imageUrl}>
     </div>
@@ -31,7 +28,8 @@ const listingTemplate = (car) => html`
         <div class="data-buttons">
             <a href="/details/${car._id}" class="button-carDetails">Details</a>
         </div>
-    </div>`;
+    </div>
+</div>`;
 
 export async function catalogPage(ctx) {
     const cars = await getAllCars();
